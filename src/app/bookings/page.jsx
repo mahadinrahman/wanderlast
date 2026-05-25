@@ -10,7 +10,9 @@ const BookingsPage = async () => {
      console.log(session);
     const user=session?.user;
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/booking/${user?.id}`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/booking/${user?.id}`,{
+         cache: "no-store",
+    });
     const datas =await res.json();
     console.log(datas);
     return (
